@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #demo{
+        width: 400px;
+        height: 400px;
+        position: relative;
+        background-color: yellow;
+    }
+    #ani{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: red;
+        /* top: 12px; */
+    }
+</style>
+<body>
+    <p><button onclick="move()">click</button></p>
+    <div id="demo">
+        <div id="ani"></div>
+    </div>
+    <script>
+        function move(){
+            let pos=0;
+            const e=document.getElementById("ani");
+            var a=setInterval(m,2);
+            var b;
+            function m(){
+                if(pos==350){
+                    clearInterval(a);
+                    b=setInterval(c,2);
+                }
+                else{
+                    pos++;
+                    e.style.top=pos+"px";
+                    e.style.left=pos+"px";
+                }
+            }
+            function c(){
+                if(pos==0){
+                    clearInterval(b);
+                    // a=setInterval(m,2);
+                }
+                else{
+                    pos--;
+                    e.style.top=pos+"px";
+                    e.style.left=pos+"px";
+                }
+            }
+
+        }
+    </script>
+    <!-- <h id="demo"></h>
+    <p class="demo"></p>
+    <script>
+        var a=null;
+        let b=0;
+       a=setInterval(print,1000);
+       function print(){
+            if(b==8){
+                clearInterval(a);
+            }
+            else{
+                document.getElementById("demo").innerHTML+="Abhishek";
+                b++; 
+            }
+        }
+    </script> -->
+</body>
+</html>

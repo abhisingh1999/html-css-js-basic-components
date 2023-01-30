@@ -1,0 +1,139 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" />
+  </head> -->
+  <body>
+    <section class="container my-3">
+      <form class="text-bg-dark p-4 rounded" id="frm">
+        <div class="my-3">
+          <label for="" class="form-label">UserName</label>
+          <input type="text" class="form-control" name="uName" id="uName" />
+          <p></p>
+        </div>
+        <div class="my-3">
+          <label for="" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" />
+          <p></p>
+        </div>
+        <div class="my-3">
+          <label for="" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password" />
+          <p></p>
+        </div>
+        <input type="submit" value="Save" class="btn btn-primary" />
+      </form>
+    </section>
+
+    <script>
+      var frm = document.getElementById("frm");
+      var uName = document.getElementById("uName");
+      var email = document.getElementById("email");
+      var password = document.getElementById("password");
+
+      frm.onsubmit = validator;
+
+      function validator() {
+        event.preventDefault();
+        // if (uName.value == "") {
+        //   return false;
+        // } else {
+        //   if (uName.value.match(/[a-zA-Z0-9-_]{6,10}/)) {
+        //     return true;
+        //   } else {
+        //     return false;
+        //   }
+        // }
+        // if (email.value == "") {
+        //   return false;
+        // } else {
+        //   if (email.value.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
+        //     return true;
+        //   } else {
+        //     return false;
+        //   }
+        // }
+        // if (password.value == "") {
+        //   return false;
+        // } else {
+        //   if (
+        //     password.value.match(
+        //       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+        //     )
+        //   ) {
+        //     return true;
+        //   } else {
+        //     return false;
+        //   }
+        // }
+
+        var isUserNameValid = inputValidator(uName, /[a-zA-Z0-9-_]{6,10}/);
+        var isEmailValid = inputValidator(
+          email,
+          /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+        );
+        var isPasswordValid = inputValidator(
+          password,
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+        );
+
+        if (isUserNameValid && isEmailValid && isPasswordValid) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function inputValidator(input, pattern) {
+        if (input.value == "") {
+          return false;
+        } else {
+          if (input.value.match(pattern)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      function inputMessage(input, pattern, msg) {
+        let inputValid = inputValidator(input, pattern);
+        if (inputValid) {
+          input.nextElementSibling.innerHTML = msg + " is Valid";
+          input.nextElementSibling.classList.remove("text-danger");
+          input.nextElementSibling.classList.add("text-success");
+        } else {
+          input.nextElementSibling.innerHTML = msg + " is In-Valid";
+          input.nextElementSibling.classList.remove("text-success");
+          input.nextElementSibling.classList.add("text-danger");
+        }
+      }
+
+      uName.addEventListener("keyup", function () {
+        inputMessage(uName, /[a-zA-Z0-9-_]{6,10}/, "Your Username");
+      });
+      email.addEventListener("keyup", function () {
+        inputMessage(email, /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Your Email");
+      });
+      password.addEventListener("keyup", function () {
+        inputMessage(
+          password,
+          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+          "Your Password"
+        );
+      });
+    </script>
+  </body>
+</html>

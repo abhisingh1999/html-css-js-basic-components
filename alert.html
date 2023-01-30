@@ -1,0 +1,37 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="btn-close" akshay>close 1</button>
+      <strong>Success!</strong> 1 This alert box could indicate a successful or
+      positive action.
+    </div>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="btn-close" akshay>close 2</button>
+      <strong>Success!</strong> 2 This alert box could indicate a successful or
+      positive action.
+    </div>
+    <div class="alert alert-success alert-dismissible">
+      <button type="button" class="btn-close" akshay>close 3</button>
+      <strong>Success!</strong> 3 This alert box could indicate a successful or
+      positive action.
+    </div>
+    <script>
+      var btns = document.querySelectorAll("[akshay]");
+
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+          this.parentNode.remove();
+        });
+      }
+    </script>
+  </body>
+</html>

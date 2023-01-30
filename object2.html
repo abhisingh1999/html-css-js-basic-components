@@ -1,0 +1,92 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <div class="container my-3">
+      <table class="table table-dark table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Roll NO</th>
+            <th>Gender</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>English</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="demo"></tbody>
+      </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/1762bdfaa7.js"
+      crossorigin="anonymous"></script>
+
+    <script>
+      function Student(name, age, rollNo, gender, english, maths, science) {
+        this.name = name;
+        this.age = age;
+        this.rollNo = rollNo;
+        this.english = english;
+        this.gender = gender;
+        this.maths = maths;
+        this.science = science;
+        this.total = function () {
+          return this.maths + this.science + this.english;
+        };
+        this.htmlText = function () {
+          let htmlT = "";
+          htmlT += "<tr>";
+          htmlT += "<td>" + this.name + "</td>";
+          htmlT += "<td>" + this.age + "</td>";
+          htmlT += "<td>" + this.rollNo + "</td>";
+          htmlT += "<td>" + this.gender + "</td>";
+          htmlT += "<td>" + this.maths + "</td>";
+          htmlT += "<td>" + this.science + "</td>";
+          htmlT += "<td>" + this.english + "</td>";
+          htmlT += "<td>" + this.total() + "</td>";
+          htmlT += "</tr>";
+
+          return htmlT;
+        };
+      }
+
+      var studentList = [];
+
+      studentList.push(new Student("Akshay", 26, 101, "Male", 88, 89, 90));
+      studentList.push(new Student("Deep", 27, 102, "Male", 78, 69, 69));
+      studentList.push(new Student("Sumit", 29, 103, "Male", 68, 78, 88));
+      studentList.push(new Student("Vikas", 38, 104, "Male", 66, 89, 90));
+      studentList.push(new Student("Jay", 40, 105, "Male", 88, 89, 90));
+
+      // var tBodyElement = document.getElementById("demo");
+
+      // studentList.forEach(function (value) {
+      //   document.getElementById("demo").innerHTML += value.htmlText();
+      // });
+      document.getElementById("demo").innerHTML = new Student(
+        "Akshay",
+        26,
+        101,
+        "Male",
+        88,
+        89,
+        90
+      ).htmlText();
+      // var t = new Student("ab", 2, 4, "m", 6, 9, 8);
+      // console.log(t.name);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      //   var add = function () {
+      //     console.log("Hello Addition");
+      //   };
+      //   add();
+
+      //   const add = () => console.log("Hello Addition");
+      //   add();
+
+      var s1 = {
+        name: "Akshay",
+        age: 26,
+        gender: "Male",
+        rollNO: 57,
+        maths: 88,
+        science: 75,
+        english: 65,
+        total: function () {
+          return this.maths + this.english + this.science;
+        },
+        print: function () {
+          return (
+            "Name : " +
+            this.name +
+            " Roll NO : " +
+            this.rollNO +
+            " Total : " +
+            this.total()
+          );
+        },
+        printHtml: function () {
+          return (
+            "<div class='container my-3'>" +
+            "<table class='table table-bordered table-striped table-dark table-hover text-center'>" +
+            "<tr><th>Name</th><td>" +
+            this.name +
+            "</td></tr>" +
+            "<tr><th>Age</th><td>" +
+            this.age +
+            "</td></tr>" +
+            "<tr><th>Gender</th><td>" +
+            this.gender +
+            "</td></tr>" +
+            "<tr><th>Roll No</th><td>" +
+            this.rollNO +
+            "</td></tr>" +
+            "<tr><th>Maths</th><td>" +
+            this.maths +
+            "</td></tr>" +
+            "<tr><th>English</th><td>" +
+            this.english +
+            "</td></tr>" +
+            "<tr><th>Science</th><td>" +
+            this.science +
+            "</td></tr>" +
+            "<tr><th>Total</th><td>" +
+            this.total() +
+            "</td></tr>" +
+            "</table>" +
+            "</div>"
+          );
+        },
+      };
+
+      //   var s2 = {
+      //     name: "Sumit",
+      //     surName: "More",
+      //   };
+
+      //   console.log(s1["name"]);
+
+      //   console.log(s1.name);
+      //   console.log(s2);
+
+      // document.write(s1.print());
+      document.write(s1.printHtml());
+    </script>
+  </body>
+</html>
