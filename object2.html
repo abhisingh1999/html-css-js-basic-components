@@ -71,20 +71,20 @@
       studentList.push(new Student("Vikas", 38, 104, "Male", 66, 89, 90));
       studentList.push(new Student("Jay", 40, 105, "Male", 88, 89, 90));
 
-      // var tBodyElement = document.getElementById("demo");
+      console.log(studentList);
 
-      // studentList.forEach(function (value) {
-      //   document.getElementById("demo").innerHTML += value.htmlText();
-      // });
-      document.getElementById("demo").innerHTML = new Student(
-        "Akshay",
-        26,
-        101,
-        "Male",
-        88,
-        89,
-        90
-      ).htmlText();
+      studentList.forEach(function (value) {
+        document.getElementById("demo").innerHTML += value.htmlText();
+      });
+      // document.getElementById("demo").innerHTML = new Student(
+      //   "Akshay",
+      //   26,
+      //   101,
+      //   "Male",
+      //   88,
+      //   89,
+      //   90
+      // ).htmlText();
       // var t = new Student("ab", 2, 4, "m", 6, 9, 8);
       // console.log(t.name);
     </script>
